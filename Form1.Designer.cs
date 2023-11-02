@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.NumUD_Height = new System.Windows.Forms.NumericUpDown();
@@ -40,11 +40,12 @@
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.CheckB_SameHeight = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.PB_ImageViewer = new System.Windows.Forms.PictureBox();
             this.Btn_ConvertImage = new System.Windows.Forms.Button();
             this.Btn_SelectImages = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.PB_ImageViewer = new System.Windows.Forms.PictureBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.NumUD_Height)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumUD_Width)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Images)).BeginInit();
@@ -120,7 +121,7 @@
             this.Dgv_Images.ReadOnly = true;
             this.Dgv_Images.RowHeadersWidth = 51;
             this.Dgv_Images.RowTemplate.Height = 26;
-            this.Dgv_Images.Size = new System.Drawing.Size(553, 239);
+            this.Dgv_Images.Size = new System.Drawing.Size(553, 264);
             this.Dgv_Images.TabIndex = 5;
             this.Dgv_Images.SelectionChanged += new System.EventHandler(this.Dgv_Images_SelectionChanged);
             // 
@@ -135,9 +136,9 @@
             // Image
             // 
             this.Image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            this.Image.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            this.Image.DefaultCellStyle = dataGridViewCellStyle2;
             this.Image.HeaderText = "Image";
             this.Image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Image.MinimumWidth = 6;
@@ -165,47 +166,9 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Height";
             // 
-            // Btn_ConvertImage
-            // 
-            this.Btn_ConvertImage.Enabled = false;
-            this.Btn_ConvertImage.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ConvertImage.Image = global::Image_Convertor.Properties.Resources.refresh;
-            this.Btn_ConvertImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_ConvertImage.Location = new System.Drawing.Point(584, 315);
-            this.Btn_ConvertImage.Name = "Btn_ConvertImage";
-            this.Btn_ConvertImage.Size = new System.Drawing.Size(195, 80);
-            this.Btn_ConvertImage.TabIndex = 8;
-            this.Btn_ConvertImage.Text = "Convert Image";
-            this.Btn_ConvertImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btn_ConvertImage.UseVisualStyleBackColor = true;
-            this.Btn_ConvertImage.Click += new System.EventHandler(this.Btn_ConvertImage_Click);
-            // 
-            // Btn_SelectImages
-            // 
-            this.Btn_SelectImages.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_SelectImages.Image = global::Image_Convertor.Properties.Resources.folder;
-            this.Btn_SelectImages.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_SelectImages.Location = new System.Drawing.Point(586, 215);
-            this.Btn_SelectImages.Name = "Btn_SelectImages";
-            this.Btn_SelectImages.Size = new System.Drawing.Size(191, 80);
-            this.Btn_SelectImages.TabIndex = 7;
-            this.Btn_SelectImages.Text = "Select Images";
-            this.Btn_SelectImages.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btn_SelectImages.UseVisualStyleBackColor = true;
-            this.Btn_SelectImages.Click += new System.EventHandler(this.Btn_SelectImages_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // PB_ImageViewer
-            // 
-            this.PB_ImageViewer.Location = new System.Drawing.Point(586, 93);
-            this.PB_ImageViewer.Name = "PB_ImageViewer";
-            this.PB_ImageViewer.Size = new System.Drawing.Size(185, 112);
-            this.PB_ImageViewer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PB_ImageViewer.TabIndex = 9;
-            this.PB_ImageViewer.TabStop = false;
             // 
             // notifyIcon1
             // 
@@ -216,12 +179,65 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::Image_Convertor.Properties.Resources._63_X_63___open_folder;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(586, 387);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 80);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Show Images Folder";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // PB_ImageViewer
+            // 
+            this.PB_ImageViewer.Location = new System.Drawing.Point(586, 80);
+            this.PB_ImageViewer.Name = "PB_ImageViewer";
+            this.PB_ImageViewer.Size = new System.Drawing.Size(200, 125);
+            this.PB_ImageViewer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PB_ImageViewer.TabIndex = 9;
+            this.PB_ImageViewer.TabStop = false;
+            // 
+            // Btn_ConvertImage
+            // 
+            this.Btn_ConvertImage.Enabled = false;
+            this.Btn_ConvertImage.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ConvertImage.Image = global::Image_Convertor.Properties.Resources.refresh;
+            this.Btn_ConvertImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_ConvertImage.Location = new System.Drawing.Point(586, 301);
+            this.Btn_ConvertImage.Name = "Btn_ConvertImage";
+            this.Btn_ConvertImage.Size = new System.Drawing.Size(200, 80);
+            this.Btn_ConvertImage.TabIndex = 8;
+            this.Btn_ConvertImage.Text = "Convert Image";
+            this.Btn_ConvertImage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_ConvertImage.UseVisualStyleBackColor = true;
+            this.Btn_ConvertImage.Click += new System.EventHandler(this.Btn_ConvertImage_Click);
+            // 
+            // Btn_SelectImages
+            // 
+            this.Btn_SelectImages.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_SelectImages.Image = global::Image_Convertor.Properties.Resources._48_X_48___import;
+            this.Btn_SelectImages.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_SelectImages.Location = new System.Drawing.Point(586, 215);
+            this.Btn_SelectImages.Name = "Btn_SelectImages";
+            this.Btn_SelectImages.Size = new System.Drawing.Size(200, 80);
+            this.Btn_SelectImages.TabIndex = 7;
+            this.Btn_SelectImages.Text = "Import Images";
+            this.Btn_SelectImages.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_SelectImages.UseVisualStyleBackColor = true;
+            this.Btn_SelectImages.Click += new System.EventHandler(this.Btn_SelectImages_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(783, 466);
+            this.ClientSize = new System.Drawing.Size(793, 491);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.PB_ImageViewer);
             this.Controls.Add(this.Btn_ConvertImage);
             this.Controls.Add(this.Btn_SelectImages);
@@ -259,6 +275,7 @@
         private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.PictureBox PB_ImageViewer;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

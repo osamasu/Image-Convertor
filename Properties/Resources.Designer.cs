@@ -63,6 +63,26 @@ namespace Image_Convertor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _48_X_48___import {
+            get {
+                object obj = ResourceManager.GetObject(" 48 X 48 - import", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _63_X_63___open_folder {
+            get {
+                object obj = ResourceManager.GetObject(" 63 X 63 - open-folder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap folder {
             get {
                 object obj = ResourceManager.GetObject("folder", resourceCulture);
@@ -76,6 +96,16 @@ namespace Image_Convertor.Properties {
         internal static System.Drawing.Bitmap height {
             get {
                 object obj = ResourceManager.GetObject("height", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap open_folder {
+            get {
+                object obj = ResourceManager.GetObject("open-folder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

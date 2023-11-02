@@ -92,5 +92,14 @@
   <ItemGroup>
     <None Include="Resources\width.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open-folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Converted Images Folder\ 48 X 48 - import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ 63 X 63 - open-folder.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -51,7 +51,7 @@ namespace Image_Convertor
             PB_ImageViewer.Image = (System.Drawing.Image)Dgv_Images.CurrentRow.Cells[1].Value;
         }
 
-
+        static string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"/IConverted Images";
 
         private void Btn_ConvertImage_Click(object sender, EventArgs e)
         {
@@ -59,9 +59,9 @@ namespace Image_Convertor
             short Width = (short)NumUD_Width.Value;
 
 
-            if (!Directory.Exists("Converted Images Folder"))
+            if (!Directory.Exists(FolderPath))
             {
-                Directory.CreateDirectory("Converted Images Folder");
+                Directory.CreateDirectory(FolderPath);
             }
 
             string sImagePath = null;
@@ -75,7 +75,7 @@ namespace Image_Convertor
                 Bitmap sConvertedImage = new Bitmap(sImage, new Size(Width, Height));
 
                 ImageName = $"{Height} X {Width} - {Path.GetFileName(sImagePath)}";
-                sConvertedImage.Save($"Converted Images Folder\\ {ImageName}");
+                sConvertedImage.Save($"{FolderPath}\\ {ImageName}");
             }
 
 
@@ -83,9 +83,20 @@ namespace Image_Convertor
 
         }
 
+        private void _OpenImagesFolder()
+        {
+            System.Diagnostics.Process.Start($@"{FolderPath}\");
+        }
+
         private void notifyIcon1_Click(object sender, EventArgs e)
         {
-            // Here Code - [ Will open Converted images folder to show ] 
+            // Here Code - [ Will open Converted images folder to show ]
+            _OpenImagesFolder();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _OpenImagesFolder();
         }
     }
 }
