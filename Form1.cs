@@ -69,35 +69,12 @@ namespace Image_Convertor
             _ShowImageInfo();
         }
 
-
         private void Btn_ConvertImage_Click(object sender, EventArgs e)
         {
-            short Height = (short)NumUD_Height.Value;
-            short Width = (short)NumUD_Width.Value;
-
-
-            if (!Directory.Exists(FolderPath))
-            {
-                Directory.CreateDirectory(FolderPath);
-            }
-
-            string sImagePath = null;
-            string ImageName = null;
-
             for (short i = 0; i < Dgv_Images.RowCount; i++)
             {
-                sImagePath = Dgv_Images.Rows[i].Cells[0].Value.ToString();
-                System.Drawing.Image sImage = System.Drawing.Image.FromFile(sImagePath);
-
-                Bitmap sConvertedImage = new Bitmap(sImage, new Size(Width, Height));
-
-                ImageName = $"{Height} X {Width} - {Path.GetFileName(sImagePath)}";
-                sConvertedImage.Save($@"{FolderPath}\{ImageName}");
+                _ConvertToImage(Dgv_Images.Rows[i].Cells[0].Value.ToString());
             }
-
-
-            notifyIcon1.ShowBalloonTip(7000);
-
         }
 
         private void _OpenImagesFolder()
@@ -118,26 +95,12 @@ namespace Image_Convertor
 
         private void Btn_ConvToICO_Click(object sender, EventArgs e)
         {
-
-            if (!Directory.Exists(FolderPath))
-            {
-                Directory.CreateDirectory(FolderPath);
-            }
-
-            string sImagePath = null;
-
-            short Height = (short)NumUD_Height.Value;
-            short Width = (short)NumUD_Width.Value;
-
             for (short i = 0; i < Dgv_Images.RowCount; i++)
             {
-                sImagePath = Dgv_Images.Rows[i].Cells[0].Value.ToString();
-                clsConvertToIco.ConvertToIcon(sImagePath, FolderPath, Height, Width);
+                _ConvertToICO(Dgv_Images.Rows[i].Cells[0].Value.ToString());
             }
-
-            notifyIcon1.ShowBalloonTip(7000);
         }
-        #endregion
+
 
         private void _ShowImageInfo()
         {
@@ -211,7 +174,56 @@ namespace Image_Convertor
         private void convertToImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+            _ConvertToImage(Dgv_Images.Rows[Dgv_Images.CurrentRow.Index].Cells[0].Value.ToString());
         }
+
+        private void convertICOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ConvertToICO(Dgv_Images.Rows[Dgv_Images.CurrentRow.Index].Cells[0].Value.ToString());
+        }
+
+        #endregion
+
+
+        #region Methods
+        private void _ConvertToICO(string sImagePath)
+        {
+            short Height = (short)NumUD_Height.Value;
+            short Width = (short)NumUD_Width.Value;
+
+            if (!Directory.Exists(FolderPath))
+            {
+                Directory.CreateDirectory(FolderPath);
+            }
+
+            clsConvertToIco.ConvertToIcon(sImagePath, FolderPath, Height, Width);
+
+            notifyIcon1.ShowBalloonTip(7000);
+        }
+
+        private void _ConvertToImage(string sImagePath)
+        {
+            short Height = (short)NumUD_Height.Value;
+            short Width = (short)NumUD_Width.Value;
+
+            if (!Directory.Exists(FolderPath))
+            {
+                Directory.CreateDirectory(FolderPath);
+            }
+
+            string ImageName = null;
+
+
+            System.Drawing.Image sImage = System.Drawing.Image.FromFile(sImagePath);
+            Bitmap sConvertedImage = new Bitmap(sImage, new Size(Width, Height));
+
+            ImageName = $"{Height} X {Width} - {Path.GetFileName(sImagePath)}";
+            sConvertedImage.Save($@"{FolderPath}\{ImageName}");
+
+            notifyIcon1.ShowBalloonTip(7000);
+        }
+        #endregion
+
     }
 
 }
