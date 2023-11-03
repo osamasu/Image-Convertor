@@ -6,12 +6,12 @@ namespace Image_Convertor
 {
     internal class clsConvertToIco
     {
-        private static bool _ConvertToIcon(Stream input, Stream output, int Size = 16)
+        private static bool _ConvertToIcon(Stream input, Stream output, int Height = 16, int Width = 16)
         {
             Bitmap inputBitmap = (Bitmap)Bitmap.FromStream(input);
             if (inputBitmap != null)
             {
-                Bitmap newBitmap = new Bitmap(inputBitmap, new Size(Size, Size));
+                Bitmap newBitmap = new Bitmap(inputBitmap, new Size(Width, Height));
 
                 if (newBitmap != null)
                 {
@@ -35,9 +35,9 @@ namespace Image_Convertor
 
                             // image entry 1
                             // 0 image width
-                            iconWriter.Write((byte)Size);
+                            iconWriter.Write((byte)Width);
                             // 1 image height
-                            iconWriter.Write((byte)Size);
+                            iconWriter.Write((byte)Height);
 
                             // 2 number of colors
                             iconWriter.Write((byte)0);
@@ -73,13 +73,13 @@ namespace Image_Convertor
             return false;
         }
 
-        public static void ConvertToIcon(string inputPath, string outputPath, int Size)
+        public static void ConvertToIcon(string inputPath, string outputPath, short Height, short Width)
         {
-            string NewImageName = $"{Size} X {Size} - {Path.GetFileNameWithoutExtension(inputPath)}";
+            string NewImageName = $"{Height} X {Width} - {Path.GetFileNameWithoutExtension(inputPath)}";
             using (FileStream inputStream = new FileStream(inputPath, FileMode.Open, FileAccess.Read))
             using (FileStream outputStream = new FileStream($"{outputPath}/{NewImageName}.ico", FileMode.OpenOrCreate))
             {
-                _ConvertToIcon(inputStream, outputStream, Size);
+                _ConvertToIcon(inputStream, outputStream, Height, Width);
 
                 inputStream.Close();
                 outputStream.Close();

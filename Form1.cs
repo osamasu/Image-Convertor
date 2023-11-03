@@ -66,7 +66,7 @@ namespace Image_Convertor
 
             PB_ImageViewer.Image = SelectedImage;
 
-
+            _ShowImageInfo();
         }
 
 
@@ -126,17 +126,31 @@ namespace Image_Convertor
 
             string sImagePath = null;
 
-            short Size = (short)NumUD_Height.Value;
+            short Height = (short)NumUD_Height.Value;
+            short Width = (short)NumUD_Width.Value;
 
             for (short i = 0; i < Dgv_Images.RowCount; i++)
             {
                 sImagePath = Dgv_Images.Rows[i].Cells[0].Value.ToString();
-                clsConvertToIco.ConvertToIcon(sImagePath, FolderPath, Size);
+                clsConvertToIco.ConvertToIcon(sImagePath, FolderPath, Height, Width);
             }
 
             notifyIcon1.ShowBalloonTip(7000);
         }
         #endregion
+
+        private void _ShowImageInfo()
+        {
+            if (Dgv_Images.Rows.Count == 0)
+            {
+                pan_OriginalImageInfo.Visible = false;
+                return;
+            }
+
+            LB_OriginalImageHeight.Text = PB_ImageViewer.Image.Height.ToString();
+            LB_OriginalImageWidth.Text = PB_ImageViewer.Image.Width.ToString();
+            pan_OriginalImageInfo.Visible = true;
+        }
 
         private void _CheckStatusForConvertToICO_Btn()
         {
@@ -144,7 +158,7 @@ namespace Image_Convertor
 
             Btn_ConvertImage.Enabled = (Dgv_Images.Rows.Count > 0);
 
-            if (CheckB_SameHeight.Checked && Dgv_Images.Rows.Count > 0)
+            if (Dgv_Images.Rows.Count > 0)
             {
                 Btn_ConvToICO.Enabled = true;
             }
@@ -192,6 +206,11 @@ namespace Image_Convertor
 
 
             Dgv_Images.Rows.RemoveAt(Dgv_Images.CurrentRow.Index);
+        }
+
+        private void convertToImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

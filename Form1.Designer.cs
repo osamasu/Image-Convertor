@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ImageConveror));
             this.label1 = new System.Windows.Forms.Label();
             this.NumUD_Height = new System.Windows.Forms.NumericUpDown();
@@ -39,24 +39,30 @@
             this.ImagePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.convertToImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.convertICOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CheckB_SameHeight = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.label4 = new System.Windows.Forms.Label();
             this.Btn_ConvToICO = new System.Windows.Forms.Button();
             this.Btn_OpenImagesFolder = new System.Windows.Forms.Button();
             this.PB_ImageViewer = new System.Windows.Forms.PictureBox();
             this.Btn_ConvertImage = new System.Windows.Forms.Button();
             this.Btn_SelectImages = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertICOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LB_OriginalImageHeight = new System.Windows.Forms.Label();
+            this.LB_OriginalImageWidth = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pan_OriginalImageInfo = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.NumUD_Height)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumUD_Width)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Images)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_ImageViewer)).BeginInit();
+            this.pan_OriginalImageInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -149,9 +155,9 @@
             // Image
             // 
             this.Image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            this.Image.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle5.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle5.NullValue")));
+            this.Image.DefaultCellStyle = dataGridViewCellStyle5;
             this.Image.HeaderText = "Image";
             this.Image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Image.MinimumWidth = 6;
@@ -167,31 +173,6 @@
             this.convertICOToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(205, 88);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F, System.Drawing.FontStyle.Bold);
-            this.deleteToolStripMenuItem.Image = global::Image_Convertor.Properties.Resources.close;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // convertToImageToolStripMenuItem
-            // 
-            this.convertToImageToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F);
-            this.convertToImageToolStripMenuItem.Image = global::Image_Convertor.Properties.Resources.picasa;
-            this.convertToImageToolStripMenuItem.Name = "convertToImageToolStripMenuItem";
-            this.convertToImageToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
-            this.convertToImageToolStripMenuItem.Text = "Convert To Image";
-            // 
-            // convertICOToolStripMenuItem
-            // 
-            this.convertICOToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F);
-            this.convertICOToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("convertICOToolStripMenuItem.Image")));
-            this.convertICOToolStripMenuItem.Name = "convertICOToolStripMenuItem";
-            this.convertICOToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
-            this.convertICOToolStripMenuItem.Text = "Convert ICO";
             // 
             // CheckB_SameHeight
             // 
@@ -227,6 +208,17 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Noto Sans Cond", 6F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(228, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 14);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Recommened For .ico images";
             // 
             // Btn_ConvToICO
             // 
@@ -295,16 +287,87 @@
             this.Btn_SelectImages.UseVisualStyleBackColor = true;
             this.Btn_SelectImages.Click += new System.EventHandler(this.Btn_SelectImages_Click);
             // 
-            // label4
+            // deleteToolStripMenuItem
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Noto Sans Cond", 6F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(228, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 14);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Recommened For .ico images";
+            this.deleteToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F, System.Drawing.FontStyle.Bold);
+            this.deleteToolStripMenuItem.Image = global::Image_Convertor.Properties.Resources.close;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // convertToImageToolStripMenuItem
+            // 
+            this.convertToImageToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F);
+            this.convertToImageToolStripMenuItem.Image = global::Image_Convertor.Properties.Resources.picasa;
+            this.convertToImageToolStripMenuItem.Name = "convertToImageToolStripMenuItem";
+            this.convertToImageToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.convertToImageToolStripMenuItem.Text = "Convert To Image";
+            this.convertToImageToolStripMenuItem.Click += new System.EventHandler(this.convertToImageToolStripMenuItem_Click);
+            // 
+            // convertICOToolStripMenuItem
+            // 
+            this.convertICOToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F);
+            this.convertICOToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("convertICOToolStripMenuItem.Image")));
+            this.convertICOToolStripMenuItem.Name = "convertICOToolStripMenuItem";
+            this.convertICOToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.convertICOToolStripMenuItem.Text = "Convert ICO";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Noto Sans Cond", 8F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.label5.Location = new System.Drawing.Point(1, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 19);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Original Image Dimansions";
+            // 
+            // LB_OriginalImageHeight
+            // 
+            this.LB_OriginalImageHeight.AutoSize = true;
+            this.LB_OriginalImageHeight.Font = new System.Drawing.Font("Noto Sans Cond", 12F, System.Drawing.FontStyle.Bold);
+            this.LB_OriginalImageHeight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.LB_OriginalImageHeight.Location = new System.Drawing.Point(24, 30);
+            this.LB_OriginalImageHeight.Name = "LB_OriginalImageHeight";
+            this.LB_OriginalImageHeight.Size = new System.Drawing.Size(69, 27);
+            this.LB_OriginalImageHeight.TabIndex = 14;
+            this.LB_OriginalImageHeight.Text = "Height";
+            // 
+            // LB_OriginalImageWidth
+            // 
+            this.LB_OriginalImageWidth.AutoSize = true;
+            this.LB_OriginalImageWidth.Font = new System.Drawing.Font("Noto Sans Cond", 12F, System.Drawing.FontStyle.Bold);
+            this.LB_OriginalImageWidth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.LB_OriginalImageWidth.Location = new System.Drawing.Point(103, 31);
+            this.LB_OriginalImageWidth.Name = "LB_OriginalImageWidth";
+            this.LB_OriginalImageWidth.Size = new System.Drawing.Size(63, 27);
+            this.LB_OriginalImageWidth.TabIndex = 15;
+            this.LB_OriginalImageWidth.Text = "Width";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Noto Sans Cond", 13F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(79, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(25, 30);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "X";
+            // 
+            // pan_OriginalImageInfo
+            // 
+            this.pan_OriginalImageInfo.Controls.Add(this.LB_OriginalImageWidth);
+            this.pan_OriginalImageInfo.Controls.Add(this.label6);
+            this.pan_OriginalImageInfo.Controls.Add(this.label5);
+            this.pan_OriginalImageInfo.Controls.Add(this.LB_OriginalImageHeight);
+            this.pan_OriginalImageInfo.Location = new System.Drawing.Point(603, 25);
+            this.pan_OriginalImageInfo.Name = "pan_OriginalImageInfo";
+            this.pan_OriginalImageInfo.Size = new System.Drawing.Size(176, 59);
+            this.pan_OriginalImageInfo.TabIndex = 17;
+            this.pan_OriginalImageInfo.Visible = false;
             // 
             // Frm_ImageConveror
             // 
@@ -325,6 +388,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NumUD_Height);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pan_OriginalImageInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -336,6 +400,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Images)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB_ImageViewer)).EndInit();
+            this.pan_OriginalImageInfo.ResumeLayout(false);
+            this.pan_OriginalImageInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,6 +430,11 @@
         private System.Windows.Forms.ToolStripMenuItem convertToImageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem convertICOToolStripMenuItem;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LB_OriginalImageHeight;
+        private System.Windows.Forms.Label LB_OriginalImageWidth;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel pan_OriginalImageInfo;
     }
 }
 
