@@ -1,6 +1,6 @@
 ﻿namespace Image_Convertor
 {
-    partial class Form1
+    partial class Frm_ImageConveror
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ImageConveror));
             this.label1 = new System.Windows.Forms.Label();
             this.NumUD_Height = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,17 +38,24 @@
             this.Dgv_Images = new System.Windows.Forms.DataGridView();
             this.ImagePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewImageColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertToImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertICOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CheckB_SameHeight = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.Btn_ConvToICO = new System.Windows.Forms.Button();
+            this.Btn_OpenImagesFolder = new System.Windows.Forms.Button();
             this.PB_ImageViewer = new System.Windows.Forms.PictureBox();
             this.Btn_ConvertImage = new System.Windows.Forms.Button();
             this.Btn_SelectImages = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NumUD_Height)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumUD_Width)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Images)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB_ImageViewer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,17 +119,23 @@
             // 
             // Dgv_Images
             // 
+            this.Dgv_Images.AllowUserToAddRows = false;
+            this.Dgv_Images.AllowUserToOrderColumns = true;
             this.Dgv_Images.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_Images.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ImagePath,
             this.Image});
-            this.Dgv_Images.Location = new System.Drawing.Point(17, 215);
+            this.Dgv_Images.ContextMenuStrip = this.contextMenuStrip1;
+            this.Dgv_Images.Location = new System.Drawing.Point(17, 236);
             this.Dgv_Images.Name = "Dgv_Images";
             this.Dgv_Images.ReadOnly = true;
             this.Dgv_Images.RowHeadersWidth = 51;
             this.Dgv_Images.RowTemplate.Height = 26;
-            this.Dgv_Images.Size = new System.Drawing.Size(553, 264);
+            this.Dgv_Images.Size = new System.Drawing.Size(553, 251);
             this.Dgv_Images.TabIndex = 5;
+            this.Dgv_Images.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Images_CellContentClick);
+            this.Dgv_Images.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Dgv_Images_RowsAdded);
+            this.Dgv_Images.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.Dgv_Images_RowsRemoved);
             this.Dgv_Images.SelectionChanged += new System.EventHandler(this.Dgv_Images_SelectionChanged);
             // 
             // ImagePath
@@ -136,25 +149,61 @@
             // Image
             // 
             this.Image.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            this.Image.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            this.Image.DefaultCellStyle = dataGridViewCellStyle3;
             this.Image.HeaderText = "Image";
             this.Image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Image.MinimumWidth = 6;
             this.Image.Name = "Image";
             this.Image.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem,
+            this.convertToImageToolStripMenuItem,
+            this.convertICOToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(205, 88);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F, System.Drawing.FontStyle.Bold);
+            this.deleteToolStripMenuItem.Image = global::Image_Convertor.Properties.Resources.close;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // convertToImageToolStripMenuItem
+            // 
+            this.convertToImageToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F);
+            this.convertToImageToolStripMenuItem.Image = global::Image_Convertor.Properties.Resources.picasa;
+            this.convertToImageToolStripMenuItem.Name = "convertToImageToolStripMenuItem";
+            this.convertToImageToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.convertToImageToolStripMenuItem.Text = "Convert To Image";
+            // 
+            // convertICOToolStripMenuItem
+            // 
+            this.convertICOToolStripMenuItem.Font = new System.Drawing.Font("Noto Sans Cond", 10.8F);
+            this.convertICOToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("convertICOToolStripMenuItem.Image")));
+            this.convertICOToolStripMenuItem.Name = "convertICOToolStripMenuItem";
+            this.convertICOToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.convertICOToolStripMenuItem.Text = "Convert ICO";
+            // 
             // CheckB_SameHeight
             // 
             this.CheckB_SameHeight.AutoSize = true;
             this.CheckB_SameHeight.Font = new System.Drawing.Font("Noto Sans Cond", 12F, System.Drawing.FontStyle.Bold);
-            this.CheckB_SameHeight.Location = new System.Drawing.Point(256, 137);
+            this.CheckB_SameHeight.Location = new System.Drawing.Point(228, 137);
             this.CheckB_SameHeight.Name = "CheckB_SameHeight";
             this.CheckB_SameHeight.Size = new System.Drawing.Size(140, 31);
             this.CheckB_SameHeight.TabIndex = 6;
             this.CheckB_SameHeight.Text = "Same Height";
             this.CheckB_SameHeight.UseVisualStyleBackColor = true;
+            this.CheckB_SameHeight.CheckedChanged += new System.EventHandler(this.CheckB_SameHeight_CheckedChanged);
             // 
             // label2
             // 
@@ -179,23 +228,38 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
             // 
-            // button1
+            // Btn_ConvToICO
             // 
-            this.button1.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::Image_Convertor.Properties.Resources._63_X_63___open_folder;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(586, 387);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 80);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Show Images Folder";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Btn_ConvToICO.Enabled = false;
+            this.Btn_ConvToICO.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ConvToICO.Image = global::Image_Convertor.Properties.Resources.ico;
+            this.Btn_ConvToICO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_ConvToICO.Location = new System.Drawing.Point(586, 320);
+            this.Btn_ConvToICO.Name = "Btn_ConvToICO";
+            this.Btn_ConvToICO.Size = new System.Drawing.Size(200, 80);
+            this.Btn_ConvToICO.TabIndex = 11;
+            this.Btn_ConvToICO.Text = "Convert To icon";
+            this.Btn_ConvToICO.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_ConvToICO.UseVisualStyleBackColor = true;
+            this.Btn_ConvToICO.Click += new System.EventHandler(this.Btn_ConvToICO_Click);
+            // 
+            // Btn_OpenImagesFolder
+            // 
+            this.Btn_OpenImagesFolder.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_OpenImagesFolder.Image = global::Image_Convertor.Properties.Resources._63_X_63___open_folder;
+            this.Btn_OpenImagesFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_OpenImagesFolder.Location = new System.Drawing.Point(586, 407);
+            this.Btn_OpenImagesFolder.Name = "Btn_OpenImagesFolder";
+            this.Btn_OpenImagesFolder.Size = new System.Drawing.Size(200, 80);
+            this.Btn_OpenImagesFolder.TabIndex = 10;
+            this.Btn_OpenImagesFolder.Text = "Show Images Folder";
+            this.Btn_OpenImagesFolder.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_OpenImagesFolder.UseVisualStyleBackColor = true;
+            this.Btn_OpenImagesFolder.Click += new System.EventHandler(this.Btn_OpenImagesFolder_Click);
             // 
             // PB_ImageViewer
             // 
-            this.PB_ImageViewer.Location = new System.Drawing.Point(586, 80);
+            this.PB_ImageViewer.Location = new System.Drawing.Point(586, 90);
             this.PB_ImageViewer.Name = "PB_ImageViewer";
             this.PB_ImageViewer.Size = new System.Drawing.Size(200, 125);
             this.PB_ImageViewer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,7 +272,7 @@
             this.Btn_ConvertImage.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_ConvertImage.Image = global::Image_Convertor.Properties.Resources.refresh;
             this.Btn_ConvertImage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_ConvertImage.Location = new System.Drawing.Point(586, 301);
+            this.Btn_ConvertImage.Location = new System.Drawing.Point(586, 233);
             this.Btn_ConvertImage.Name = "Btn_ConvertImage";
             this.Btn_ConvertImage.Size = new System.Drawing.Size(200, 80);
             this.Btn_ConvertImage.TabIndex = 8;
@@ -222,22 +286,35 @@
             this.Btn_SelectImages.Font = new System.Drawing.Font("Kelson Sans", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_SelectImages.Image = global::Image_Convertor.Properties.Resources._48_X_48___import;
             this.Btn_SelectImages.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_SelectImages.Location = new System.Drawing.Point(586, 215);
+            this.Btn_SelectImages.Location = new System.Drawing.Point(374, 147);
             this.Btn_SelectImages.Name = "Btn_SelectImages";
-            this.Btn_SelectImages.Size = new System.Drawing.Size(200, 80);
+            this.Btn_SelectImages.Size = new System.Drawing.Size(196, 80);
             this.Btn_SelectImages.TabIndex = 7;
             this.Btn_SelectImages.Text = "Import Images";
             this.Btn_SelectImages.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_SelectImages.UseVisualStyleBackColor = true;
             this.Btn_SelectImages.Click += new System.EventHandler(this.Btn_SelectImages_Click);
             // 
-            // Form1
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Noto Sans Cond", 6F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(228, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(128, 14);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Recommened For .ico images";
+            // 
+            // Frm_ImageConveror
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(793, 491);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(800, 494);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Btn_ConvToICO);
+            this.Controls.Add(this.Btn_OpenImagesFolder);
             this.Controls.Add(this.PB_ImageViewer);
             this.Controls.Add(this.Btn_ConvertImage);
             this.Controls.Add(this.Btn_SelectImages);
@@ -248,11 +325,16 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NumUD_Height);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "Frm_ImageConveror";
+            this.Text = "Image Converor";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NumUD_Height)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumUD_Width)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_Images)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PB_ImageViewer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -275,7 +357,13 @@
         private System.Windows.Forms.DataGridViewImageColumn Image;
         private System.Windows.Forms.PictureBox PB_ImageViewer;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Btn_OpenImagesFolder;
+        private System.Windows.Forms.Button Btn_ConvToICO;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convertToImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convertICOToolStripMenuItem;
+        private System.Windows.Forms.Label label4;
     }
 }
 
